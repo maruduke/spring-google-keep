@@ -17,6 +17,7 @@
     <title>My Notes</title>
   </head>
  <body>
+  
     <main>
       <img id="mainBanner" src="resources/img/main_banner.png" />
       <!-- 새로운 노트 생성 컴포넌트 -->
@@ -104,31 +105,34 @@
 
     <footer>Crafted by Inho Han 😁</footer>
 
-    <div id="modalLayout" class="hide"></div>
-
+<form action="save" method="get">
+  <div id="modalLayout" class="hide"></div>
     <div id="modalWrapper" class="hide">
       <div class="modal-container">
-        <div class="note-content">
-          <input class="note-title-input" type="text" placeholder="제목" />
-          <textarea class="note-body-input"></textarea>
+        <div class="note-content">      
+          <input name="title" class="note-title-input" type="text" placeholder="제목" />
+          <textarea name="body" class="note-body-input"></textarea>
         </div>
+        
         <div class="note-footer">
           <div>
-            <button class="pin">
-              <span class="material-icons md-18 gray">push_pin</span>
+            <button name="pin" type="button" class="pin">
+              <span class="material-icons-outlined md-18 gray">push_pin</span>
             </button>
             <div class="color-select">
-              <input class="color-picker" type="color" value="#FFFFFF" />
+              <input name=color class="color-picker" type="color" value="#FFFFFF" />
               <span class="material-icons-outlined md-18 gray">palette</span>
             </div>
-            <button class="delete">
+            <button type="button" class="delete">
               <span class="material-icons-outlined md-18 gray">delete</span>
             </button>
           </div>
-          <button class="close">닫기</button>
+          <button class="close">저장</button>   
         </div>
       </div>
     </div>
-    
+</form>
+ 
+     <script type="text/javascript" src="resources/js/index.js?after"></script>
   </body>
 </html>
