@@ -10,7 +10,16 @@ class Modal{
 		modalWrapper: document.getElementById("modalWrapper"),
 		modalFooterCloseButton: document.querySelector(
         "#modalWrapper > div > div.note-footer > button.close"
-      )
+      ),
+		modalPinButton: document.querySelector(
+		"#modalWrapper > div > div.note-footer > div > button.pin"
+		),
+		modalPinButtonSpan: document.querySelector(
+		"#modalWrapper > div> div.note-footer > div > button.pin > span"
+			),
+		modalPinButtonInput: document.querySelector(
+		"#modalWrapper > div > div.note-footer > div > input.pin"
+		)
 		};	
 	};
 	
@@ -23,20 +32,34 @@ class Modal{
 		modal.elements.modalLayout.className ="hide";
 		modal.elements.modalWrapper.className="hide";
 	}
+	
+	pinned() {
+		const pinbutton = modal.elements.modalPinButtonSpan;
+		const pinValue = modal.elements.modalPinButtonInput;
+		
+		if(pinbutton.className == "material-icons-outlined md-18 gray")
+		{
+			pinbutton.className = "material-icons md-18 gray"
+			pinValue.value = "true";
+		}
+		else
+		{
+			pinbutton.className = "material-icons-outlined md-18 gray"
+			pinValue.value = "false";
+		}
+	}
 };
 
 
 const modal = new Modal();
-
 //modal open
-newNoteBar.addEventListener("click", function () {
-      	modal.open()
-});
+newNoteBar.addEventListener("click",modal.open);
 
-//modal event
-modal.elements.modalFooterCloseButton.addEventListener("click", function() {
-	modal.close();
-});
+//modal close event
+modal.elements.modalFooterCloseButton.addEventListener("click",modal.close);
+
+//modal pin event
+modal.elements.modalPinButton.addEventListener("click",modal.pinned);
 
 
 

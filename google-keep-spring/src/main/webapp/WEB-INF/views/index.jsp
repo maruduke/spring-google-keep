@@ -72,7 +72,7 @@
         <div class="section-header">노트</div>
         <div class="note-container">
         
-                	<c:forEach var="dto" items="${list }" >
+        <c:forEach var="dto" items="${list }" >
         	<c:if test="${dto.pinned == false }">
         		<div class="note"> 
         			${dto.id}
@@ -97,7 +97,7 @@
         			
         		</div>
 			</c:if>	
-        	</c:forEach>
+        </c:forEach>
         	
         </div>
       </section>
@@ -105,7 +105,7 @@
 
     <footer>Crafted by Inho Han 😁</footer>
 
-<form action="save" method="get">
+<form action="create" method="get" >
   <div id="modalLayout" class="hide"></div>
     <div id="modalWrapper" class="hide">
       <div class="modal-container">
@@ -116,16 +116,21 @@
         
         <div class="note-footer">
           <div>
+          	
+          	<input type="hidden" name="pin" class="pin" value="false">
             <button name="pin" type="button" class="pin">
               <span class="material-icons-outlined md-18 gray">push_pin</span>
             </button>
+            
             <div class="color-select">
               <input name=color class="color-picker" type="color" value="#FFFFFF" />
               <span class="material-icons-outlined md-18 gray">palette</span>
             </div>
+            
             <button type="button" class="delete">
               <span class="material-icons-outlined md-18 gray">delete</span>
             </button>
+            
           </div>
           <button class="close">저장</button>   
         </div>
@@ -133,6 +138,6 @@
     </div>
 </form>
  
-     <script type="text/javascript" src="resources/js/index.js?after"></script>
+     <script type="text/javascript" src="resources/js/index.js?test"></script>
   </body>
 </html>

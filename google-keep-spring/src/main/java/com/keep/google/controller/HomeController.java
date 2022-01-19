@@ -1,11 +1,14 @@
 package com.keep.google.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.keep.google.service.NCreateService;
 import com.keep.google.service.NListService;
 import com.keep.google.service.NService;
 import com.keep.google.util.Constant;
@@ -34,4 +37,12 @@ public class HomeController {
 		return "index";
 	}
 	
+	@RequestMapping("/create")
+	public String create(HttpServletRequest request, Model model)
+	{
+		model.addAttribute("request",request);
+		service = new NCreateService();
+		service.execute(model);
+		return "";
+	}
 }

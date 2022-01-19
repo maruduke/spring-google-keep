@@ -34,5 +34,9 @@ public class NDao {
 		return (ArrayList<NDto>)template.query(query, new BeanPropertyRowMapper<NDto>(NDto.class));
 	}
 	
+	public void create(NDto dto)
+	{
+		String query = "";
+	}
 
 }
