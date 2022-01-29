@@ -1,7 +1,4 @@
 
-const newNoteBar = document.getElementById("newNoteBar");
-
-
 //modal 객체 선택 및 함수
 class Modal{
 	constructor() {

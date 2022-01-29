@@ -1,5 +1,7 @@
 package com.keep.google.service;
 
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +12,7 @@ import com.keep.google.dao.NDao;
 
 public class NCreateService implements NService {
 
+	NDao dao = new NDao();
 	
 	@Override
 	public void execute(Model model) {
@@ -21,9 +24,15 @@ public class NCreateService implements NService {
 		String body = request.getParameter("body");
 		String pin = request.getParameter("pin");
 		String color = request.getParameter("color");
+		Date time = new Date(System.currentTimeMillis());
 		
-		NDao dao = new NDao();
+		System.out.println(title);
+		System.out.println(body);
+		System.out.println(pin);
+		System.out.println(color);
+		System.out.println(time);
 		
+		dao.create(title,body,pin,color,time);
 	}
 
 }

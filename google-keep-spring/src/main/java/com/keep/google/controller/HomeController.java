@@ -7,8 +7,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.keep.google.service.NCreateService;
+import com.keep.google.service.NDeleteService;
 import com.keep.google.service.NListService;
 import com.keep.google.service.NService;
 import com.keep.google.util.Constant;
@@ -42,7 +44,23 @@ public class HomeController {
 	{
 		model.addAttribute("request",request);
 		service = new NCreateService();
+		System.out.println("create");
 		service.execute(model);
-		return "";
+		return "redirect:/";
+	}
+	
+	@RequestMapping("/correction")
+	public String correction(HttpServletRequest request, Model model)
+	{
+		String deleted = request.getParameter("deleted");
+		model.addAttribute("request", request);
+		
+		if(deleted.equals("1"))
+		{
+			service = new NDeleteService();
+			service.execute(model);
+		}
+		
+		return "redirect:/";
 	}
 }

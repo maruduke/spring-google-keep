@@ -47,6 +47,8 @@
         			<div class="note-body">
         				${dto.body}
         			</div>
+        	        
+        		
         			<div class="note-footer flex-start">
         				<button class="pin">
         					<span class="material-icons md-18 gray">push_pin</span>
@@ -58,7 +60,15 @@
         				<button class="delete">
         					<span class="material-icons-outlined md-18 gray">delete</span>
         				</button>
+        				
+        				<form action="correction" method="GET">
+        					<input type="hidden" class=id name="id" value="${dto.id}">        			
+        					<input type="hidden" class= deleted name="deleted" value="0">
+        					<input type="hidden" name="color" value="${dto.backgroundColor }">
+        					<input type="hidden" name="pin" value="${dto.pinned }">
+        				</form>
         			</div>
+        
         			
         		</div>
 			</c:if>	
@@ -74,7 +84,7 @@
         
         <c:forEach var="dto" items="${list }" >
         	<c:if test="${dto.pinned == false }">
-        		<div class="note"> 
+        		<div class="note" style="background-color:${dto.backgroundColor}"> 
         			${dto.id}
         			<div class="note-title">
         				${dto.title}
@@ -82,19 +92,30 @@
         			<div class="note-body">
         				${dto.body}
         			</div>
-        			<div class="note-footer flex-start">
-        				<button class="pin">
-        					<span class="material-icons-outlined md-18 gray">push_pin</span>
-        				</button>
-        				<div class="color-select">
-        					<input class="color-picker" type="color">
-        					<span class="material-icons-outlined md-18 gray">palette</span>        				
-        				</div>
-        				<button class="delete">
-        					<span class="material-icons-outlined md-18 gray">delete</span>
-        				</button>
-        			</div>
         			
+
+        				<div class="note-footer flex-start">
+        					<button class="pin">
+        						<span class="material-icons-outlined md-18 gray">push_pin</span>
+        					</button>
+        					<div class="color-select">
+        						<input class="color-picker" type="color">
+        						<span class="material-icons-outlined md-18 gray">palette</span>        				
+        					</div>
+        					<button class="delete">
+        						<span class="material-icons-outlined md-18 gray">delete</span>
+        					</button>
+        					
+        					<form action="correction" method="GET">
+        						<input type="hidden" class=id name="id" value="${dto.id}">        			
+        						<input type="hidden" class= deleted name="deleted" value="0">
+        						<input type="hidden" name="color" value="${dto.backgroundColor }">
+        						<input type="hidden" name="pin" value="${dto.pinned }">
+        					</form>
+        					
+        				</div>
+        			
+        					
         		</div>
 			</c:if>	
         </c:forEach>
@@ -103,7 +124,7 @@
       </section>
     </main>
 
-    <footer>Crafted by Inho Han 😁</footer>
+    <footer>Crafted by gyeongseok</footer>
 
 <form action="create" method="get" >
   <div id="modalLayout" class="hide"></div>
@@ -138,6 +159,7 @@
     </div>
 </form>
  
-     <script type="text/javascript" src="resources/js/index.js?test"></script>
+     <script type="text/javascript" src="resources/js/modal.js?test"></script>
+     <script type="text/javascript" src="resources/js/notebar.js?test"></script>
   </body>
 </html>
