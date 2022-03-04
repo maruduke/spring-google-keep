@@ -13,6 +13,7 @@ import com.keep.google.service.NCreateService;
 import com.keep.google.service.NDeleteService;
 import com.keep.google.service.NListService;
 import com.keep.google.service.NService;
+import com.keep.google.service.NUpdateService;
 import com.keep.google.util.Constant;
 
 /**
@@ -58,6 +59,12 @@ public class HomeController {
 		if(deleted.equals("1"))
 		{
 			service = new NDeleteService();
+			service.execute(model);
+		}
+		
+		else
+		{
+			service = new NUpdateService();
 			service.execute(model);
 		}
 		

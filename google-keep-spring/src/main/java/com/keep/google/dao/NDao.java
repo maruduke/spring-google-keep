@@ -52,4 +52,12 @@ public class NDao {
 		
 		template.update(query,id);
 	}
+
+
+	public void update(String id, String color, String pin) {
+		
+		String query = "update note set pinned=?, backgroundcolor=? where id=?";
+		template.update(pin,color,id);
+		
+	}
 }

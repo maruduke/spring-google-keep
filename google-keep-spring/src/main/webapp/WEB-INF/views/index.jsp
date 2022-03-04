@@ -65,7 +65,7 @@
         					<input type="hidden" class=id name="id" value="${dto.id}">        			
         					<input type="hidden" class= deleted name="deleted" value="0">
         					<input type="hidden" name="color" value="${dto.backgroundColor }">
-        					<input type="hidden" name="pin" value="${dto.pinned }">
+        					<input type="hidden" class="pinned" value="${dto.pinned }">
         				</form>
         			</div>
         
@@ -110,7 +110,7 @@
         						<input type="hidden" class=id name="id" value="${dto.id}">        			
         						<input type="hidden" class= deleted name="deleted" value="0">
         						<input type="hidden" name="color" value="${dto.backgroundColor }">
-        						<input type="hidden" name="pin" value="${dto.pinned }">
+        						<input type="hidden" class="pinned" value="${dto.pinned }">
         					</form>
         					
         				</div>
@@ -138,7 +138,6 @@
         <div class="note-footer">
           <div>
           	
-          	<input type="hidden" name="pin" class="pin" value="false">
             <button name="pin" type="button" class="pin">
               <span class="material-icons-outlined md-18 gray">push_pin</span>
             </button>
